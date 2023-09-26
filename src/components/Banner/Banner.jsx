@@ -6,7 +6,7 @@ const Banner = () => {
             I Grow By Helping People In Need
             </h2>
             <div className="flex ">
-            <input type="text" placeholder="Type here" className="py-3 px-8 rounded-l-lg" />
+            <input type="text" placeholder="Type here" className="border border-[#DEDEDE] border-solid py-3 px-8 rounded-l-lg" />
             <button className="bg-[#FF444A] text-white py-3 px-6 rounded-r-lg text-base font-semibold">Search</button>
 
             </div>

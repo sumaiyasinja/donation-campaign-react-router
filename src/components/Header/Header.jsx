@@ -3,11 +3,12 @@ import Banner from "../Banner/Banner";
 
 const Header = () => {
     return (
-        <div style={{backgroundImage: "url(https://i.ibb.co/t4W01dL/Rectangle4281.png)",
-        backgroundColor: "rgba(255, 255, 255, 0.2)"
-        }}>
+        <div className="relative"> 
+        <img className="" src="https://i.ibb.co/t4W01dL/Rectangle4281.png" alt="" />
+        <div className="absolute top-0 h-full w-full bg-[#FFFFFFE1] ">
             <Navbar></Navbar>
             <Banner></Banner>
+        </div>
         </div>
     );
 };
