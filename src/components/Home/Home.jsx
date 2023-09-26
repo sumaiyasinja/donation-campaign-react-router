@@ -1,9 +1,9 @@
-import React from 'react';
+import Header from '../Header/Header';
 
 const Home = () => {
     return (
-        <div className='text-red-400'>
-            Welcome hemo
+        <div className=''>
+            <Header></Header>
         </div>
     );
 };
