@@ -10,12 +10,14 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col">
             <a className="text-[#FF444A] font-bold text-2xl">Donation</a>
-            <p className="text-indigo-900 bg-opacity-70">Campaign</p>
+            <p className="font-inter whitespace-normal  text-indigo-900 font-medium bg-opacity-70
+            text-lg font-inter" style={{ letterSpacing: '0.15rem' }}
+            >Campaign</p>
           </div>
         </div>
         <div className="flex-none">
           <ul className="flex text-lg px-1 text-indigo-900 bg-opacity-70 gap-10">
-            <NavLink className={({ isActive }) => (isActive ? 'text-[#FF444A] underline' : '')}   to="/">Home</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? 'text-[#FF444A] underline' : '')}  to="/">Home</NavLink>
             <NavLink className={({ isActive }) => (isActive ? 'text-[#FF444A] underline' : '')}  to="/donation">Donation</NavLink>
             <NavLink className={({ isActive }) => (isActive ? 'text-[#FF444A] underline' : '')} to="/statistics">Statistics</NavLink>
           </ul>
