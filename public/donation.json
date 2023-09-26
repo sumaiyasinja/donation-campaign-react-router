@@ -1,0 +1,123 @@
+[
+    {
+      "picture": "image1.jpg",
+      "title": "Clean Water for Children",
+      "category": "Health",
+      "category_bg_color": "#4CAF50",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#0B0B0B",
+      "description": "Provide clean and safe drinking water to children in need. Your donation will help us build water purification systems and distribute clean water to underserved communities, improving the health and well-being of countless children.",
+      "price": "$25"
+    },
+    {
+      "picture": "image2.jpg",
+      "title": "Quality Education",
+      "category": "Education",
+      "category_bg_color": "#007BFF",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#FFD700",
+      "description": "Support quality education initiatives for underprivileged children. Your contribution will fund scholarships, educational materials, and teacher training programs, ensuring that every child has access to a brighter future through education.",
+      "price": "$50"
+    },
+    {
+      "picture": "image3.jpg",
+      "title": "Warm Clothing Drive",
+      "category": "Clothing",
+      "category_bg_color": "#FFC107",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#000000",
+      "description": "Donate warm clothing to help those in need stay warm and comfortable. Your generosity will provide warm clothing to homeless individuals and families during the cold winter months, offering them warmth and dignity.",
+      "price": "$10"
+    },
+    {
+      "picture": "image4.jpg",
+      "title": "Nutritious Food for All",
+      "category": "Food",
+      "category_bg_color": "#E91E63",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#F57C00",
+      "description": "Provide nutritious meals to families and individuals struggling with hunger. Your support will enable us to distribute healthy food options to food banks and shelters, ensuring that no one in our community goes to bed hungry.",
+      "price": "$30"
+    },
+    {
+      "picture": "image5.jpg",
+      "title": "Medical Aid",
+      "category": "Health",
+      "category_bg_color": "#4CAF50",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#0B0B0B",
+      "description": "Support medical aid programs to provide healthcare access to those in need. Your contribution will help save lives and improve the health of individuals facing medical challenges.",
+      "price": "$40"
+    },
+    {
+      "picture": "image6.jpg",
+      "title": "STEM Education",
+      "category": "Education",
+      "category_bg_color": "#007BFF",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#FFD700",
+      "description": "Promote STEM (Science, Technology, Engineering, and Mathematics) education among young students. Your donation will support STEM programs and inspire the next generation of innovators and problem solvers.",
+      "price": "$60"
+    },
+    {
+      "picture": "image7.jpg",
+      "title": "Homeless Shelter",
+      "category": "Clothing",
+      "category_bg_color": "#FFC107",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#000000",
+      "description": "Provide shelter and basic necessities to homeless individuals. Your contribution will help create safe and warm spaces for those experiencing homelessness, giving them a chance to rebuild their lives.",
+      "price": "$20"
+    },
+    {
+      "picture": "image8.jpg",
+      "title": "Community Gardens",
+      "category": "Food",
+      "category_bg_color": "#E91E63",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#F57C00",
+      "description": "Support community gardens and local food production. Your donation will help communities grow fresh, sustainable food and improve access to nutritious options for everyone.",
+      "price": "$35"
+    },
+    {
+      "picture": "image9.jpg",
+      "title": "Clean Water for Children",
+      "category": "Health",
+      "category_bg_color": "#4CAF50",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#0B0B0B",
+      "description": "Provide clean and safe drinking water to children in need. Your donation will help us build water purification systems and distribute clean water to underserved communities, improving the health and well-being of countless children.",
+      "price": "$25"
+    },
+    {
+      "picture": "image10.jpg",
+      "title": "Quality Education",
+      "category": "Education",
+      "category_bg_color": "#007BFF",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#FFD700",
+      "description": "Support quality education initiatives for underprivileged children. Your contribution will fund scholarships, educational materials, and teacher training programs, ensuring that every child has access to a brighter future through education.",
+      "price": "$50"
+    },
+    {
+      "picture": "image11.jpg",
+      "title": "Warm Clothing Drive",
+      "category": "Clothing",
+      "category_bg_color": "#FFC107",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#000000",
+      "description": "Donate warm clothing to help those in need stay warm and comfortable. Your generosity will provide warm clothing to homeless individuals and families during the cold winter months, offering them warmth and dignity.",
+      "price": "$10"
+    },
+    {
+      "picture": "image12.jpg",
+      "title": "Nutritious Food for All",
+      "category": "Food",
+      "category_bg_color": "#E91E63",
+      "card_bg_color": "#FFFFFF",
+      "text_button_bg_color": "#F57C00",
+      "description": "Provide nutritious meals to families and individuals struggling with hunger. Your support will enable us to distribute healthy food options to food banks and shelters, ensuring that no one in our community goes to bed hungry.",
+      "price": "$30"
+    }
+  ]
+  
