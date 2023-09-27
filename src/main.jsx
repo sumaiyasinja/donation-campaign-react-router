@@ -8,6 +8,7 @@ import PieChart from './components/PieChart/PieChart'
 import DonationBoxs from './components/DonationBoxs/DonationBoxs';
 import DonatedItems from './components/DonatedItems/DonatedItems';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import DonationDetails from './components/DonationDetails/DonationDetails';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: "/statistics",
         element: <PieChart></PieChart>,
+      },
+      {
+        path: "/donation-details/:id",
+        element: <DonationDetails></DonationDetails>,
+        loader: () => fetch('/donation.json'),
       },
 
 ]);
