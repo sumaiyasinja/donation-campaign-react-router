@@ -1,7 +1,7 @@
 import { useParams,useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Navbar from "../Navbar/Navbar";
-import {saveJDonationInfo} from '../../utility/localstorage.js';
+import {saveJDonationInfo,getStoredDonations } from '../../utility/localstorage.js';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,11 +13,17 @@ const DonationDetails = () => {
 
 
     const donated = () => {
-        saveJDonationInfo(donation);
-        // saveJDonationInfo(id);
-
-        toast.success("Doanted!")
-    };
+        const existingDonations = getStoredDonations();
+        const isDuplicate = existingDonations.some((donation) => donation.id == id);
+      
+        if (!isDuplicate) {
+          saveJDonationInfo(donation);
+          toast.success("Successfully Donated!");
+        } else {
+          toast.warning("This donation has already been saved.");
+        }
+      };
+      
 
     console.log(donation,id);
     return (
@@ -29,8 +35,8 @@ const DonationDetails = () => {
         
         <div className='absolute bottom-0 left-0 right-0 '>
             {/* Overlay */}
-            <div className='bg-[#0B0B0B80] h-20 rounded-lg absolute inset-x-0 bottom-0'></div>
-            <buttons onClick={donated} className='cursor-pointer absolute mx-10 bg-red-500 text-white py-3 px-6 rounded-lg z-10 bottom-4'>
+            <div className='bg-[#0B0B0B80] h-24 rounded-lg absolute inset-x-0 bottom-0'></div>
+            <buttons onClick={donated} style={{ backgroundColor: donation.textColor }} className='cursor-pointer font-bold text-lg absolute mx-10  text-white py-4 px-6 rounded-lg z-10 bottom-4'>
             Donate {donation.price}
             </buttons>
         </div>
