@@ -14,6 +14,8 @@ const DonationDetails = () => {
 
     const donated = () => {
         saveJDonationInfo(donation);
+        // saveJDonationInfo(id);
+
         toast.success("Doanted!")
     };
 
