@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div className="navbar container mx-auto  flex-col md:flex-row">
+        <div className="navbar container mx-auto flex-col md:flex-row">
         <div className="flex-1">
           <div>
             <img src="https://i.ibb.co/9Ydckjy/Group.png" alt="" />

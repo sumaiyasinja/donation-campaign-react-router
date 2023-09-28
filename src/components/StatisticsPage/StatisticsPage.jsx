@@ -1,62 +1,59 @@
-import React, { useEffect, useState } from "react";
-import { Pie } from "react-chartjs-2";
-import { useLoaderData } from 'react-router-dom';
+import { PieChart, Pie } from 'recharts';
 import Navbar from "../Navbar/Navbar";
-import { getStoredDonations, saveJDonationInfo } from "../../utility/localstorage";
+import { getStoredDonations } from "../../utility/localstorage";
+import { useLoaderData } from 'react-router-dom';
 
 const StatisticsPage = () => {
-  const donations = useLoaderData();
-  const totalDonations = donations.length;
-  const givenDonation = getStoredDonations();
-  const percentage = (givenDonation.length / totalDonations) * 100;
+  const totalDonations = useLoaderData().length;
+  const givenDonation = getStoredDonations().length;
+  const percentageOfDonation = ((givenDonation / totalDonations) * 100).toFixed(2);
+  const remaningPercentage = 100 - percentageOfDonation;
 
-  // Data for the pie chart
-  const data = {
-    labels: ["Your Donations", "Remaining Donations"],
-    datasets: [
-      {
-        data: [percentage, 100 - percentage],
-        backgroundColor: ["#FF6B6B", "#E5E7EB"],
-      },
-    ],
+  console.log(totalDonations);
+
+  // Sample data
+  const data = [
+    { value: totalDonations, fill: '#FF444A', percentage: (100- (givenDonation / totalDonations * 100)).toFixed(2) },
+    { value: givenDonation, fill: '#00C49F',  percentage: percentageOfDonation },
+  ];
+
+
+  const datalabel = { visible: true, position: 'Inside', name: 'text' };
+  const tooltip = { enable: true };
+  const tooltipRender = (args) => {
+      let value = args.point.y / args.series.sumOfPoints * 100;
+      args.text = args.point.x + '' + Math.ceil(value) + '' + '%';
   };
-
-  // Chart options
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      display: true,
-      position: "bottom",
-    },
-  };
-
-  // Use a key to force re-rendering of the Pie chart component
-  const [chartKey, setChartKey] = useState(0);
-
-  useEffect(() => {
-    // Destroy the existing chart when the component unmounts
-    return () => {
-      const existingChart = document.getElementById("donation-chart");
-      if (existingChart) {
-        existingChart.getContext("2d").clearRect(0, 0, existingChart.width, existingChart.height);
-      }
-    };
-  }, []);
-
+  
   return (
-    <div>
+    <div className='p-2 className="color:0B0B0B"'>
       <Navbar></Navbar>
-      <h2>Donations Statistics</h2>
-      <p>Your donations: {givenDonation.length}</p>
-      <p>Total donations: {totalDonations}</p>
-      <div className="pie-chart-container">
+      <PieChart width={400} height={400} className='mx-auto'>
         <Pie
-          key={chartKey}
-          id="donation-chart"
           data={data}
-          options={options}
+          strokeWidth={3}
+          dataKey="value"
+          outerRadius={200}
+          fill="fill"
+          label={({ percentage }) => {
+            return percentage + '%';
+          }}
+          labelStyle={{
+            fontSize: 16,
+            color: 'white',
+            position: 'inside',
+          }}
         />
+      </PieChart>
+      <div className="flex justify-around">
+        <div className='flex gap-2'>
+          <p className="text-[#0B0B0B]">Your Donation</p>
+          <p className='bg-[#00C49F] text-white rounded-sm px-20 py-1'></p>
+        </div>
+        <div className='flex gap-2'>
+          <p className="text-[#0B0B0B]">Total Donation</p>
+          <p className='bg-[#FF444A] text-white rounded-sm px-20 py-1'></p>
+        </div>
       </div>
     </div>
   );

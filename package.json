@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/x-charts": "^6.0.0-alpha.12",
+    "@syncfusion/ej2-react-grids": "^23.1.38",
     "chart.js": "^4.4.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -18,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "react-toastify": "^9.1.3",
+    "recharts": "^2.8.0",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {

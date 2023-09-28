@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { getStoredDonations } from "../../utility/localstorage";
+import { NavLink } from 'react-router-dom';
+
 
 const DonatedItems = () => {
   const [showAll, setShowAll] = useState(false);
@@ -39,9 +41,11 @@ const DonatedItems = () => {
               </div>
               <h2 className="text-xl font-semibold">{donation.title}</h2>
               <p style={{ color: donation.textColor }} className="">{donation.price}</p>
+              <NavLink to={`/donation-details/${donation.id}`}>
               <button style={{ backgroundColor: donation.textColor }} className="text-white py-2 px-4 rounded">
                 View Details
               </button>
+              </NavLink>
               </div>
 
             </div>
