@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import DonationBox from '../DonationBox/DonationBox';
-import Banner from '../Banner/Banner'; // Import the Banner component
+import Banner from '../Banner/Banner';
 
-const DonationBoxs = () => {
+const DonationBoxs = ({searchCategory}) => {
   const [donations, setDonations] = useState([]);
-  const [searchCategory, setSearchCategory] = useState("");
+  // const [searchCategory, setSearchCategory] = useState("");
 
   useEffect(() => {
     fetch('donation.json')
@@ -14,10 +14,6 @@ const DonationBoxs = () => {
       });
   }, []);
 
-  const handleSearch = (category) => {
-    setSearchCategory(category);
-  }
-
   // Filter donations based on the search category
   const filteredDonations = donations.filter(donation => {
     return searchCategory === "" || donation.category.toLowerCase() === searchCategory.toLowerCase();
@@ -25,7 +21,8 @@ const DonationBoxs = () => {
 
   return (
     <div>
-      <Banner onSearch={handleSearch} />
+      {/* Render the Banner component once */}
+      {/* <Banner onSearch={handleSearch} /> */}
       <div className="w-[90%] mx-auto mt-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredDonations.map(donation => (
           <DonationBox key={donation.id} donation={donation}></DonationBox>

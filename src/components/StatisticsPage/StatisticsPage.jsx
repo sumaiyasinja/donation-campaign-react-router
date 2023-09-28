@@ -1,55 +1,72 @@
-import { PieChart, Pie } from 'recharts';
-import Navbar from "../Navbar/Navbar";
+import { ResponsiveContainer, PieChart, Pie, Legend, Cell } from 'recharts';
 import { getStoredDonations } from "../../utility/localstorage";
+import Navbar from "../Navbar/Navbar";
 import { useLoaderData } from 'react-router-dom';
 
-const StatisticsPage = () => {
-  const totalDonations = useLoaderData().length;
-  const givenDonation = getStoredDonations().length;
-  const percentageOfDonation = ((givenDonation / totalDonations) * 100).toFixed(2);
-  const remaningPercentage = 100 - percentageOfDonation;
 
-  console.log(totalDonations);
+const COLORS = ['#FF444A', '#00C49F'];
 
-  // Sample data
+export default function StatisticsPage() {
+  const givenDonation = getStoredDonations();
+  const donationsData =useLoaderData();
+
+    console.log(givenDonation);
   const data = [
-    { value: totalDonations, fill: '#FF444A', percentage: (100- (givenDonation / totalDonations * 100)).toFixed(2) },
-    { value: givenDonation, fill: '#00C49F',  percentage: percentageOfDonation },
+    { name: 'Total Donation', value: donationsData?.length - givenDonation?.length },
+    { name: 'Your Donation', value: givenDonation?.length },
   ];
 
-  
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * (Math.PI / 180));
+    const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        fontSize="16" 
+        fontWeight="bold" 
+        textAnchor={x > cx ? 'start' : 'end'}
+        dominantBaseline="central"
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
   return (
-    <div className='p-2 className="color:0B0B0B"'>
+    <div>
       <Navbar></Navbar>
-      <PieChart width={400} height={400} className='mx-auto w-1/2 md:w-2/3 lg:w-full'>
+    
+    <ResponsiveContainer width="100%" height={400}>
+      <PieChart width={400} height={400}>
         <Pie
           data={data}
-          strokeWidth={3}
+          cx="50%"
+          cy="50%"
+          labelLine={false}
+          outerRadius={140}
+          fill="#8884d8"
           dataKey="value"
-          outerRadius={200}
-          fill="fill"
-          label={({ percentage }) => {
-            return percentage + '%';
-          }}
-          labelStyle={{
-            fontSize: 16,
-            color: 'white',
-            position: 'inside',
+          label={renderCustomizedLabel}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Legend
+          iconSize={30} 
+          wrapperStyle={{
+            fontSize: '16px', 
+            fontWeight: 'bold', 
+            padding: '10px', 
           }}
         />
       </PieChart>
-      <div className="p-4 flex gap-4 flex-col md:flex-row lg:flex-row justify-around">
-        <div className='flex gap-2'>
-          <p className="text-[#0B0B0B]">Your Donation</p>
-          <p className='bg-[#00C49F] text-white rounded-sm px-20 py-1'></p>
-        </div>
-        <div className='flex gap-2'>
-          <p className="text-[#0B0B0B]">Total Donation</p>
-          <p className='bg-[#FF444A] text-white rounded-sm px-20 py-1'></p>
-        </div>
-      </div>
+    </ResponsiveContainer>
+
     </div>
   );
-};
-
-export default StatisticsPage;
+}

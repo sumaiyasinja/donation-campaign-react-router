@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const Banner = ({ onSearch }) => {
-  const [searchInput, setSearchInput] = useState("");
+const Banner = ({ setSearchCategory }) => {
 
-  const handleSearch = () => {
-    onSearch(searchInput);
+
+  const handleSubmited = (e) => {
+    e.preventDefault();
+    setSearchCategory(e.target.search.value);
+    console.log(e.target);
   }
 
   return (
@@ -12,22 +14,17 @@ const Banner = ({ onSearch }) => {
       <h2 className="text-[#0B0B0B] font-bold text-2xl md:text-3xl lg:text-5xl">
         I Grow By Helping People In Need
       </h2>
-      <div className="flex">
-        <input
-          type="text"
-          placeholder="Type here"
-          className="border border-[#DEDEDE] border-solid py-3 px-8 rounded-l-lg"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-        <button
-          id="searchSubmit"
-          onClick={handleSearch}
-          className="bg-[#FF444A] text-white py-3 px-6 rounded-r-lg text-base font-semibold"
-        >
-          Search
-        </button>
-      </div>
+      <form className="join " onSubmit={handleSubmited}>
+         <div>
+          <div>
+          <input name='search'  className="input input-bordered join-item md:w-[350px] bg-white border" placeholder="Search"/>
+                                    
+           </div>
+          </div>
+          <div className="indicator">
+          <button className="btn join-item bg-[#ff444a] text-white border-none hover:bg-[#ff444a]"><input type="submit" value="Search" /></button>
+          </div>
+          </form>
     </div>
   );
 };
