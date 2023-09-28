@@ -17,18 +17,11 @@ const StatisticsPage = () => {
     { value: givenDonation, fill: '#00C49F',  percentage: percentageOfDonation },
   ];
 
-
-  const datalabel = { visible: true, position: 'Inside', name: 'text' };
-  const tooltip = { enable: true };
-  const tooltipRender = (args) => {
-      let value = args.point.y / args.series.sumOfPoints * 100;
-      args.text = args.point.x + '' + Math.ceil(value) + '' + '%';
-  };
   
   return (
     <div className='p-2 className="color:0B0B0B"'>
       <Navbar></Navbar>
-      <PieChart width={400} height={400} className='mx-auto'>
+      <PieChart width={400} height={400} className='mx-auto w-1/2 md:w-2/3 lg:w-full'>
         <Pie
           data={data}
           strokeWidth={3}
@@ -45,7 +38,7 @@ const StatisticsPage = () => {
           }}
         />
       </PieChart>
-      <div className="flex justify-around">
+      <div className="p-4 flex gap-4 flex-col md:flex-row lg:flex-row justify-around">
         <div className='flex gap-2'>
           <p className="text-[#0B0B0B]">Your Donation</p>
           <p className='bg-[#00C49F] text-white rounded-sm px-20 py-1'></p>

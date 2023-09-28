@@ -27,7 +27,7 @@ const DonationDetails = () => {
 
     console.log(donation,id);
     return (
-        <div className='container mx-auto'> 
+        <div className='container mx-auto p-4'> 
         <Navbar></Navbar>
         <ToastContainer></ToastContainer>
         <div className='relative'>
